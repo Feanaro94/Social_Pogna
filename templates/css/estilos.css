@@ -1,0 +1,27 @@
+body {
+    background-color: #3D4356;
+}
+
+.titulo_texto {
+    color: #fd7718;
+    font-size: 24px;
+    font-family: 'Montserrant Bold';
+}
+
+.subtitulo_texto {
+    color: #fd7718;
+    font-size: 21px;
+    font-family: 'Montserrant Medium';
+}
+
+.boton_texto {
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'Montserrant Medium';
+}
+
+.parrafo_texto {
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'Titillium Web Regular';
+}
