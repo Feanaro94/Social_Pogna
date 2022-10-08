@@ -93,7 +93,7 @@ div {
     padding:15px;
 }
 .caja_agregar_imagen{
-    width: 200px;
+    width: 450px;
     margin-top: 10px;
     margin-bottom: 5px;
     margin-left: auto;
@@ -185,13 +185,13 @@ div {
 
 .columna_izq{
         float: left;
-        width: 650px;
+        width: 660px;
         overflow: hidden;
         margin: 5px auto;
 }
 .columna_der{
     float: right;
-    width: 650px;
+    width: 660px;
     overflow: hidden;
     margin: 5px auto;
 }
@@ -226,10 +226,6 @@ margin: 5px auto;
     resize: none;
 }
 
-#titulo_superior{
+.titulo_superior{
     display: inline-block;
-}
-
-#titulo_inferior{
-    display:inline-block;
 }

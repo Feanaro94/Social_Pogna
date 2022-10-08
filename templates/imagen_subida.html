@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>imagen subida</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+    <div class="centrar color_fondo mantener_top">
+        <h1 class="titulo_texto"> La Imagen Se Subió Con Exito </h1>
+    </div> 
+    <div class="caja_pequeña color_fondo centrar redondeo">
+        <form action="/usuario/">
+            <input type="submit" class="boton_texto_1" value="Perfil de {{ nombre }}">
+        </form>
+    </div>
+    <div class="centrar color_fondo mantener_abajo">
+        <h2 class="titulo_texto" id="titulo_inferior"> Social Pogna </h2> 
+    </div>
+</body>
+</html>

@@ -14,17 +14,19 @@ def index():
 @app.route("/iniciar/", methods=["post"])
 def login():
     usuario = request.form["usuario"]
-    contraseña = request.form["contraseña"]
-    if not usuario or not contraseña: 
+    password = request.form["contraseña"]
+    clave = hashlib.sha256(password.encode())
+    pwd = clave.hexdigest()
+    if not usuario or not password: 
         return "Se necesita usuario/contraseña. Porfavor regresar e ingresar los datos correctos"
     if len(usuario) > 15:
         return "Usuario excede longitud maxima. Porfavor regresar e ingresar los datos correctos"
-    if len(contraseña) > 20:
+    if len(password) > 20:
         return "Contraseña excede longitud maxima. Porfavor regresar e ingresar los datos correctos"
 
     with sqlite3.connect ("Base_Comentarios.db") as con:
         cur = con.cursor()
-        cur.execute("SELECT 1 FROM Usuarios WHERE id = ? AND contraseña = ?", [usuario, contraseña])
+        cur.execute("SELECT 1 FROM Usuarios WHERE id = ? AND contraseña = ?", [usuario, pwd])
         if cur.fetchone():     
             session["usuario"]=usuario
             return redirect("/usuario/") 
@@ -49,7 +51,7 @@ def registro_crear():
         cur.execute("SELECT id FROM Usuarios WHERE id=?", [user])
         if cur.fetchone():
             return redirect("/existe_usuario/")
-        cur.execute("INSERT INTO Usuarios (id,contraseña) VALUES (?,?);", [user, password])
+        cur.execute("INSERT INTO Usuarios (id,contraseña) VALUES (?,?);", [user, pwd])
         con.commit()
         return redirect("/usuario_creado/")
 
@@ -65,9 +67,21 @@ def usuario_creado():
 def usuario():
     return render_template("usuario.html", nombre = session["usuario"])
 
-@app.route("/usuario/sub_imagen/")
+@app.route("/usuario/sub_imagen/", methods=["post"])
 def sub_imagen():
-    return 
+    imagen = request.files["subir_imagen"]
+    nom_archivo = imagen.filename
+    ruta = FOLDER_IMAGENES + secure_filename(nom_archivo)
+    imagen.save(ruta)
+    with sqlite3.connect("Base_Comentarios.db") as con: 
+        cur = con.cursor()
+        cur.execute("INSERT INTO Imagenes (ruta,usuario) VALUES (?,?);", [ruta,session["usuario"]])
+        con.commit()
+    return redirect("/imagen_subida/")
+
+@app.route("/imagen_subida/")
+def imagen_subida():
+    return render_template("imagen_subida.html", nombre = session["usuario"])
 
 @app.route("/agr_comentario/")
 def agr_comentario():
@@ -75,7 +89,7 @@ def agr_comentario():
 
 @app.route("/buscar/")
 def buscar():
-    return render_template("buscar.html")
+    return render_template("buscar.html", nombre = session["usuario"])
 
 @app.route("/buscar/bus_usuario")
 def bus_usuario():
@@ -87,7 +101,7 @@ def env_mensajes():
 
 @app.route("/mensajes/")
 def mensajes():
-    return render_template("mensajes.html")
+    return render_template("mensajes.html", nombre = session["usuario"])
 
 @app.route("/logout/")
 def logout():

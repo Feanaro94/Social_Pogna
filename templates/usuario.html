@@ -9,22 +9,24 @@
 </head>
 <body>
     <div class="centrar color_fondo mantener_top">
-        <h1 class="titulo_texto"> Perfil de {{ nombre }} </h1> 
-        <form action="/mensajes/">
+        <h1 class="titulo_texto titulo_superior"> Perfil de {{ nombre }} </h1> 
+        <form action="/mensajes/" class="titulo_superior">
             <input type="submit" class="boton_texto_2" value="Mensajes">
         </form>
-        <form action="/buscar/">
+        <form action="/buscar/" class="titulo_superior">
             <input type="submit" class="boton_texto_2" value="Busqueda">
         </form>
     </div>
     <div class="caja_agregar_imagen color_fondo centrar redondeo">
-        <form action="/usuario/sub_imagen/">
-            <input type="submit" class="boton_agregar_imagen" value="Subir Imagen">
+        <form action="/usuario/sub_imagen/" method="post" enctype="multipart/form-data">
+            <label for="" class="subtitulo_texto">Subir Imagen</label><br>
+            <input type="file" class="boton_agregar_imagen" name="subir_imagen"><br>
+            <input type="submit" class="boton_texto_1" value="Subir">
         </form>
     </div>
     <div class="contenedor_columna">
         <div class="columna_izq color_fondo centrar margen redondeo">
-                <h2> imagen </h2>
+
         </div>
         <div class="columna_der color_fondo centrar margen redondeo">
             <form action="/agr_comentario/">
@@ -37,8 +39,8 @@
         </div>
     </div>
     <div class="centrar color_fondo mantener_abajo">
-        <h2 class="titulo_texto" > Social Pogna </h2>
-        <form action="/logout/">
+        <h2 class="titulo_texto titulo_superior" > Social Pogna </h2>
+        <form action="/logout/" class="titulo_superior">
             <input type="submit" class="boton_texto_2" value="Cerrar Sesión">
         </form>
     </div>
