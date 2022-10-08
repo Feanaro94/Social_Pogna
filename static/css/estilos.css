@@ -52,10 +52,15 @@ table {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&family=Titillium+Web&display=swap');
 
 body {
-    background-color: #6a788f;
+    background-color: #6a788f; background-image: url("imagenes/mosaico.png");
 }
 div {
     padding: 10px 10px;
+}
+
+.redondeo {
+    border-style: none;
+    border-radius: 10px;
 }
 .mantener_top{
     position: sticky;
@@ -208,6 +213,8 @@ margin: 5px auto;
     margin: 5px;
     background-color: #6a788f;
     resize: none;
+    border-style: none;
+    border-radius: 10px;
 }
 
 .tamaño_comentarios{

@@ -5,22 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mensajes</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
 </head>
 <body>
     <div class="contenedor_columna">
-        <div class="columna_izq color_fondo centrar margen">
+        <div class="columna_izq color_fondo centrar margen redondeo">
             <h2 class="titulo_texto"> Usuario </h2>
         </div>
-        <div class="columna_der color_fondo centrar margen">
+        <div class="columna_der color_fondo centrar margen redondeo">
             <h2 class="titulo_texto"> Mensajes </h2>
         </div>
     </div>
     <div class="contenedor_columna">
-        <div class="comentador color_fondo centrar margen">
+        <div class="comentador color_fondo centrar margen redondeo">
                 <h2 class="subtitulo_texto"> Nombre Comnentador </h2>
         </div>
-        <div class="conversacion color_fondo centrar margen">
+        <div class="conversacion color_fondo centrar margen redondeo">
             <label for="" class="subtitulo_texto">Agregar Mensaje</label><br>
             <input type="text" class="lineas_texto"><br>
             <input type="submit" class="boton_texto_1" value="Enviar"><br>
@@ -29,7 +29,9 @@
         </div>
     </div>
     <div class="centrar color_fondo mantener_abajo">
-        <input type="submit" class="boton_texto_2" value="Perfil de Usuario"> 
+        <form action="/usuario/">
+            <input type="submit" class="boton_texto_2" value="Perfil de Usuario"> 
+        </form>
     </div>
 </body>
 </html>

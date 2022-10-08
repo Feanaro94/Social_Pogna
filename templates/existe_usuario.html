@@ -4,25 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrarse</title>
+    <title>existe usuario</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
 </head>
 <body>
     <div class="centrar color_fondo mantener_top">
-        <h1 class="titulo_texto"> Registro </h1>
+        <h1 class="titulo_texto"> El Usuario Ya Existe </h1>
     </div> 
     <div class="caja_pequeña color_fondo centrar redondeo">
-        <form action="/registro/crear/", method="post">
-            <label for="" class="subtitulo_texto" class="centrar" > Usuario </label>
-            <input type="text" required maxlength="15" name="reg_usuario"> <br>
-            <label for="" class="subtitulo_texto" > Contraseña </label>
-            <input type="password" required maxlength="20" name="reg_contraseña"> <br>
+        <form action="/registro/", method="post">
+            <label for="" class="subtitulo_texto" class="centrar" > Porfavor Utilizar Otro Nombre De Usuario </label>
             <input type="submit" class="boton_texto_1" value="Regristrarse">
-        </form>
-    </div>
-    <div class="caja_pequeña color_fondo centrar redondeo">
-        <form action="/">
-            <input type="submit" class="boton_texto_1" value="Iniciar Sesión">
         </form>
     </div>
     <div class="centrar color_fondo mantener_abajo">
